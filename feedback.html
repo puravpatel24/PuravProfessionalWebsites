@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VIT Mess Portal — Feedback</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg sticky-top site-navbar">
+  <div class="container">
+    <a class="navbar-brand brand-wrap" href="index.html">
+      <div class="brand-mark">M</div>
+      <div><div class="brand-name">VIT Mess Portal</div><div class="brand-tagline">Hostel Dining Guide</div></div>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-1">
+        <li class="nav-item"><a class="nav-link npill" href="index.html">Overview</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link npill dropdown-toggle" href="#" data-bs-toggle="dropdown">Mess Types</a>
+          <ul class="dropdown-menu site-dropdown">
+            <li><a class="dropdown-item" href="menu.html#veg">Vegetarian Mess</a></li>
+            <li><a class="dropdown-item" href="menu.html#nonveg">Non-Vegetarian Mess</a></li>
+            <li><a class="dropdown-item" href="menu.html#special">Special Mess</a></li>
+            <li><hr class="dropdown-divider"/></li>
+            <li><a class="dropdown-item" href="paid.html">Paid Mess (Hotel Style)</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link npill" href="menu.html">Weekly Menu</a></li>
+        <li class="nav-item"><a class="nav-link npill" href="gallery.html">Gallery</a></li>
+        <li class="nav-item"><a class="nav-link npill" href="forms.html">Registration</a></li>
+        <li class="nav-item"><a class="nav-link npill active" href="feedback.html">Feedback</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="container py-5 text-center">
+    <p class="page-eyebrow">Student Voice</p>
+    <h1 class="page-title">Mess Feedback</h1>
+    <p class="page-sub mx-auto">Rate your dining experience and help the administration improve quality. All feedback is reviewed weekly by the Mess Committee.</p>
+  </div>
+</div>
+
+<!-- FEEDBACK FORM -->
+<section class="section-pad bg-white">
+  <div class="container">
+    <div class="row g-5">
+
+      <!-- FORM -->
+      <div class="col-lg-7">
+        <h2 class="section-title mb-4">Submit Your Feedback</h2>
+        <div class="form-card">
+          <div class="form-card-body">
+            <div id="feedbackSuccess" class="alert alert-success d-none">Thank you for your feedback. It has been submitted successfully and will be reviewed by the Mess Committee.</div>
+            <div id="feedbackError" class="alert alert-danger d-none"></div>
+            <form id="feedbackForm" onsubmit="submitFeedback(event)">
+
+              <h6 class="form-section-label">Your Details</h6>
+              <div class="row g-3 mb-4">
+                <div class="col-sm-6">
+                  <label class="form-label fw-semibold small">Name (optional)</label>
+                  <input type="text" class="form-control" placeholder="Leave blank for anonymous feedback"/>
+                </div>
+                <div class="col-sm-6">
+                  <label class="form-label fw-semibold small">Registration Number</label>
+                  <input type="text" class="form-control" placeholder="Required for billing complaints only"/>
+                </div>
+                <div class="col-sm-6">
+                  <label class="form-label fw-semibold small">Hostel Block *</label>
+                  <select class="form-select" id="fbBlock" required onchange="updateFeedbackMessOptions()">
+                    <option value="">Select Block</option>
+                    <option value="A">Block A</option>
+                    <option value="B">Block B</option>
+                    <option value="C">Block C</option>
+                    <option value="D">Block D</option>
+                    <option value="E">Block E</option>
+                  </select>
+                </div>
+                <div class="col-sm-6">
+                  <label class="form-label fw-semibold small">Your Mess Type *</label>
+                  <select class="form-select" id="fbMess" required>
+                    <option value="">Select block first</option>
+                  </select>
+                </div>
+              </div>
+
+              <h6 class="form-section-label">Ratings</h6>
+              <div class="row g-3 mb-4">
+                <div class="col-sm-6">
+                  <label class="form-label fw-semibold small">Food Quality *</label>
+                  <select class="form-select" required>
+                    <option value="">Rate</option>
+                    <option value="5">5 — Excellent</option>
+                    <option value="4">4 — Good</option>
+                    <option value="3">3 — Average</option>
+                    <option value="2">2 — Below Average</option>
+                    <option value="1">1 — Poor</option>
+                  </select>
+                </div>
+                <div class="col-sm-6">
+                  <label class="form-label fw-semibold small">Hygiene and Cleanliness *</label>
+                  <select class="form-select" required>
+                    <option value="">Rate</option>
+                    <option value="5">5 — Excellent</option>
+                    <option value="4">4 — Good</option>
+                    <option value="3">3 — Average</option>
+                    <option value="2">2 — Below Average</option>
+                    <option value="1">1 — Poor</option>
+                  </select>
+                </div>
+                <div class="col-sm-6">
+                  <label class="form-label fw-semibold small">Portion Size</label>
+                  <select class="form-select">
+                    <option value="">Rate</option>
+                    <option value="5">5 — More than enough</option>
+                    <option value="4">4 — Sufficient</option>
+                    <option value="3">3 — Just adequate</option>
+                    <option value="2">2 — Slightly less</option>
+                    <option value="1">1 — Insufficient</option>
+                  </select>
+                </div>
+                <div class="col-sm-6">
+                  <label class="form-label fw-semibold small">Staff Behaviour</label>
+                  <select class="form-select">
+                    <option value="">Rate</option>
+                    <option value="5">5 — Very Courteous</option>
+                    <option value="4">4 — Polite</option>
+                    <option value="3">3 — Neutral</option>
+                    <option value="2">2 — Indifferent</option>
+                    <option value="1">1 — Rude</option>
+                  </select>
+                </div>
+                <div class="col-sm-6">
+                  <label class="form-label fw-semibold small">Value for Money</label>
+                  <select class="form-select">
+                    <option value="">Rate</option>
+                    <option value="5">5 — Excellent value</option>
+                    <option value="4">4 — Good value</option>
+                    <option value="3">3 — Average</option>
+                    <option value="2">2 — Slightly overpriced</option>
+                    <option value="1">1 — Poor value</option>
+                  </select>
+                </div>
+                <div class="col-sm-6">
+                  <label class="form-label fw-semibold small">Overall Satisfaction *</label>
+                  <select class="form-select" required>
+                    <option value="">Rate</option>
+                    <option value="5">5 — Very Satisfied</option>
+                    <option value="4">4 — Satisfied</option>
+                    <option value="3">3 — Neutral</option>
+                    <option value="2">2 — Dissatisfied</option>
+                    <option value="1">1 — Very Dissatisfied</option>
+                  </select>
+                </div>
+              </div>
+
+              <h6 class="form-section-label">Comments</h6>
+              <div class="row g-3 mb-4">
+                <div class="col-12">
+                  <label class="form-label fw-semibold small">What did you like?</label>
+                  <textarea class="form-control" rows="2" placeholder="What aspects of your mess did you enjoy..."></textarea>
+                </div>
+                <div class="col-12">
+                  <label class="form-label fw-semibold small">What needs improvement?</label>
+                  <textarea class="form-control" rows="2" placeholder="Suggestions for improving food quality, cleanliness, service..."></textarea>
+                </div>
+                <div class="col-12">
+                  <label class="form-label fw-semibold small">Specific Dish Suggestions</label>
+                  <input type="text" class="form-control" placeholder="Dishes you would like added to the menu..."/>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-primary-solid px-5 py-2 fw-bold">Submit Feedback</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- EXISTING FEEDBACK DISPLAY -->
+      <div class="col-lg-5">
+        <h2 class="section-title mb-4">Recent Student Reviews</h2>
+        <div id="feedbackList"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOCK-WISE RATINGS -->
+<section class="section-pad" style="background:#f4f6f9">
+  <div class="container">
+    <div class="section-head text-center mb-4">
+      <h2 class="section-title">Block-wise Mess Ratings</h2>
+      <p class="section-sub">Average ratings compiled from student feedback over the current semester.</p>
+      <p class="text-muted small mt-2" style="font-weight:600">All scores are out of 10. Reference: 10 is the highest possible score.</p>
+    </div>
+    <div class="card border-0 shadow-sm overflow-hidden">
+      <div class="table-responsive">
+        <table class="table site-table mb-0">
+          <thead>
+            <tr>
+              <th>Block</th>
+              <th>Mess Type</th>
+              <th>Food Quality<br><span style="font-weight:400;opacity:.7;font-size:.65rem">out of 10</span></th>
+              <th>Hygiene<br><span style="font-weight:400;opacity:.7;font-size:.65rem">out of 10</span></th>
+              <th>Value<br><span style="font-weight:400;opacity:.7;font-size:.65rem">out of 10</span></th>
+              <th>Overall<br><span style="font-weight:400;opacity:.7;font-size:.65rem">out of 10</span></th>
+              <th>Responses</th>
+            </tr>
+          </thead>
+          <tbody id="ratingsTable"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer pt-5 pb-4">
+  <div class="container">
+    <div class="row g-4 mb-4">
+      <div class="col-md-4">
+        <div class="d-flex align-items-center gap-3 mb-3">
+          <div class="brand-mark">M</div>
+          <div><div class="brand-name">VIT Mess Portal</div><div class="brand-tagline">Hostel Dining Guide</div></div>
+        </div>
+        <p class="footer-text">Centralized mess management portal for VIT University hostel students.</p>
+      </div>
+      <div class="col-md-4">
+        <h6 class="footer-head">Navigation</h6>
+        <ul class="list-unstyled footer-links">
+          <li><a href="index.html">Overview</a></li>
+          <li><a href="menu.html">Weekly Menu</a></li>
+          <li><a href="paid.html">Paid Mess</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="forms.html">Registration</a></li>
+          <li><a href="feedback.html">Feedback</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h6 class="footer-head">Mess Administration</h6>
+        <ul class="list-unstyled footer-text small">
+          <li class="mb-2">Mess Office: Block B, Ground Floor</li>
+          <li class="mb-2">Phone: 0416-220-3030</li>
+          <li class="mb-2">Email: mess@vit.ac.in</li>
+          <li>Office Hours: 9 AM to 5 PM (Mon to Sat)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-top border-white border-opacity-10 pt-4 d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+      <p class="footer-text small mb-0">2025 VIT Mess Portal. All rights reserved.</p>
+      <p class="footer-text small mb-0" style="opacity:.4">Built with HTML, Bootstrap, JavaScript</p>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
