@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VIT Mess Portal — Weekly Menu</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg sticky-top site-navbar">
+  <div class="container">
+    <a class="navbar-brand brand-wrap" href="index.html">
+      <div class="brand-mark">M</div>
+      <div><div class="brand-name">VIT Mess Portal</div><div class="brand-tagline">Hostel Dining Guide</div></div>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-1">
+        <li class="nav-item"><a class="nav-link npill" href="index.html">Overview</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link npill dropdown-toggle" href="#" data-bs-toggle="dropdown">Mess Types</a>
+          <ul class="dropdown-menu site-dropdown">
+            <li><a class="dropdown-item" href="menu.html#veg">Vegetarian Mess</a></li>
+            <li><a class="dropdown-item" href="menu.html#nonveg">Non-Vegetarian Mess</a></li>
+            <li><a class="dropdown-item" href="menu.html#special">Special Mess</a></li>
+            <li><hr class="dropdown-divider"/></li>
+            <li><a class="dropdown-item" href="paid.html">Paid Mess (Hotel Style)</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link npill active" href="menu.html">Weekly Menu</a></li>
+        <li class="nav-item"><a class="nav-link npill" href="gallery.html">Gallery</a></li>
+        <li class="nav-item"><a class="nav-link npill" href="forms.html">Registration</a></li>
+        <li class="nav-item"><a class="nav-link npill" href="feedback.html">Feedback</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="container py-5 text-center">
+    <p class="page-eyebrow">Dining Schedules</p>
+    <h1 class="page-title">Weekly Mess Menu</h1>
+    <p class="page-sub mx-auto">Complete 7-day meal schedule for all mess types. Menus are updated every Monday.</p>
+  </div>
+</div>
+
+<!-- MESS TYPE TABS -->
+<div class="sticky-tabs">
+  <div class="container">
+    <div class="d-flex gap-2 overflow-auto py-2">
+      <button class="tab-btn active" onclick="showMessTab('veg',this)">Vegetarian</button>
+      <button class="tab-btn" onclick="showMessTab('nonveg',this)">Non-Vegetarian</button>
+      <button class="tab-btn" onclick="showMessTab('special',this)">Special</button>
+      <button class="tab-btn" onclick="showMessTab('paid',this)">Paid Mess</button>
+    </div>
+  </div>
+</div>
+
+<!-- VEG MENU -->
+<section class="section-pad bg-white menu-section active" id="veg">
+  <div class="container">
+    <div class="mess-section-head mb-4" style="--mc:#166534">
+      <div class="mess-section-label">Vegetarian Mess</div>
+      <h2 class="mess-section-title">Weekly Menu — Veg</h2>
+      <p class="text-secondary small">Available in: Block A, B, C, D, E &nbsp;|&nbsp; Monthly Fee: Rs. 3,200 &nbsp;|&nbsp; Mess Halls: All blocks</p>
+    </div>
+    <div class="card border-0 shadow-sm overflow-hidden">
+      <div class="table-responsive">
+        <table class="table site-table menu-table mb-0">
+          <thead><tr><th>Day</th><th>Breakfast</th><th>Lunch</th><th>Dinner</th></tr></thead>
+          <tbody id="vegMenuBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NON-VEG MENU -->
+<section class="section-pad bg-white menu-section d-none" id="nonveg">
+  <div class="container">
+    <div class="mess-section-head mb-4" style="--mc:#7c2d12">
+      <div class="mess-section-label">Non-Vegetarian Mess</div>
+      <h2 class="mess-section-title">Weekly Menu — Non-Veg</h2>
+      <p class="text-secondary small">Available in: Block A, B, E &nbsp;|&nbsp; Monthly Fee: Rs. 3,600 &nbsp;|&nbsp; Non-veg served: Tue, Thu, Sat, Sun</p>
+    </div>
+    <div class="card border-0 shadow-sm overflow-hidden">
+      <div class="table-responsive">
+        <table class="table site-table menu-table mb-0">
+          <thead><tr><th>Day</th><th>Breakfast</th><th>Lunch</th><th>Dinner</th></tr></thead>
+          <tbody id="nonvegMenuBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPECIAL MENU -->
+<section class="section-pad bg-white menu-section d-none" id="special">
+  <div class="container">
+    <div class="mess-section-head mb-4" style="--mc:#1e3a8a">
+      <div class="mess-section-label">Special Mess</div>
+      <h2 class="mess-section-title">Weekly Menu — Special</h2>
+      <p class="text-secondary small">Available in: Block C, D &nbsp;|&nbsp; Monthly Fee: Rs. 4,200 &nbsp;|&nbsp; Includes weekend premium items</p>
+    </div>
+    <div class="card border-0 shadow-sm overflow-hidden">
+      <div class="table-responsive">
+        <table class="table site-table menu-table mb-0">
+          <thead><tr><th>Day</th><th>Breakfast</th><th>Lunch</th><th>Dinner</th></tr></thead>
+          <tbody id="specialMenuBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAID MESS MENU -->
+<section class="section-pad bg-white menu-section d-none" id="paid">
+  <div class="container">
+    <div class="mess-section-head mb-4" style="--mc:#713f12">
+      <div class="mess-section-label">Paid Mess — Hotel Style</div>
+      <h2 class="mess-section-title">Daily A La Carte Menu</h2>
+      <p class="text-secondary small">Available at: Central Mess B, Central Mess D &nbsp;|&nbsp; Open: 7 AM to 10:30 PM &nbsp;|&nbsp; No subscription required</p>
+    </div>
+    <div class="row g-4" id="paidMenuCards"></div>
+  </div>
+</section>
+
+<!-- NUTRITION NOTE -->
+<section class="section-pad" style="background:#f4f6f9">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <h2 class="section-title mb-3">Nutritional Standards</h2>
+        <p class="text-secondary lh-lg">All VIT mess kitchens follow FSSAI guidelines. Menus are designed by a certified nutritionist to ensure balanced macros and micronutrients for hostel students. Seasonal vegetables are prioritised.</p>
+        <ul class="nutrition-list mt-3">
+          <li>Minimum 2500 kcal per day per student</li>
+          <li>Protein-rich dal, legumes, and eggs included daily</li>
+          <li>No artificial colour or flavour additives</li>
+          <li>RO-purified water used in all cooking</li>
+          <li>Hygiene audit conducted every 15 days</li>
+        </ul>
+      </div>
+      <div class="col-lg-6">
+        <div class="row g-3">
+          <div class="col-6"><div class="nutr-card"><div class="nutr-val">2500+</div><div class="nutr-lbl">Kcal / Day</div></div></div>
+          <div class="col-6"><div class="nutr-card"><div class="nutr-val">60g+</div><div class="nutr-lbl">Protein / Day</div></div></div>
+          <div class="col-6"><div class="nutr-card"><div class="nutr-val">FSSAI</div><div class="nutr-lbl">Certified Kitchen</div></div></div>
+          <div class="col-6"><div class="nutr-card"><div class="nutr-val">100%</div><div class="nutr-lbl">RO Water Used</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer pt-5 pb-4">
+  <div class="container">
+    <div class="row g-4 mb-4">
+      <div class="col-md-4">
+        <div class="d-flex align-items-center gap-3 mb-3">
+          <div class="brand-mark">M</div>
+          <div><div class="brand-name">VIT Mess Portal</div><div class="brand-tagline">Hostel Dining Guide</div></div>
+        </div>
+        <p class="footer-text">Centralized mess management portal for VIT University hostel students.</p>
+      </div>
+      <div class="col-md-4">
+        <h6 class="footer-head">Navigation</h6>
+        <ul class="list-unstyled footer-links">
+          <li><a href="index.html">Overview</a></li>
+          <li><a href="menu.html">Weekly Menu</a></li>
+          <li><a href="paid.html">Paid Mess</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="forms.html">Registration</a></li>
+          <li><a href="feedback.html">Feedback</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h6 class="footer-head">Mess Administration</h6>
+        <ul class="list-unstyled footer-text small">
+          <li class="mb-2">Mess Office: Block B, Ground Floor</li>
+          <li class="mb-2">Phone: 0416-220-3030</li>
+          <li class="mb-2">Email: mess@vit.ac.in</li>
+          <li>Office Hours: 9 AM to 5 PM (Mon to Sat)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-top border-white border-opacity-10 pt-4 d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+      <p class="footer-text small mb-0">2025 VIT Mess Portal. All rights reserved.</p>
+      <p class="footer-text small mb-0" style="opacity:.4">Built with HTML, Bootstrap, JavaScript</p>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
