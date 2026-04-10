@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VIT Mess Portal — Forms and Registration</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg sticky-top site-navbar">
+  <div class="container">
+    <a class="navbar-brand brand-wrap" href="index.html">
+      <div class="brand-mark">M</div>
+      <div><div class="brand-name">VIT Mess Portal</div><div class="brand-tagline">Hostel Dining Guide</div></div>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-1">
+        <li class="nav-item"><a class="nav-link npill" href="index.html">Overview</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link npill dropdown-toggle" href="#" data-bs-toggle="dropdown">Mess Types</a>
+          <ul class="dropdown-menu site-dropdown">
+            <li><a class="dropdown-item" href="menu.html#veg">Vegetarian Mess</a></li>
+            <li><a class="dropdown-item" href="menu.html#nonveg">Non-Vegetarian Mess</a></li>
+            <li><a class="dropdown-item" href="menu.html#special">Special Mess</a></li>
+            <li><hr class="dropdown-divider"/></li>
+            <li><a class="dropdown-item" href="paid.html">Paid Mess (Hotel Style)</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link npill" href="menu.html">Weekly Menu</a></li>
+        <li class="nav-item"><a class="nav-link npill" href="gallery.html">Gallery</a></li>
+        <li class="nav-item"><a class="nav-link npill active" href="forms.html">Registration</a></li>
+        <li class="nav-item"><a class="nav-link npill" href="feedback.html">Feedback</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="container py-5 text-center">
+    <p class="page-eyebrow">Mess Administration</p>
+    <h1 class="page-title">Forms and Registration</h1>
+    <p class="page-sub mx-auto">New mess registration, mess switch requests, leave applications, and grievance forms — all in one place.</p>
+  </div>
+</div>
+
+<!-- FORM TABS -->
+<div class="sticky-tabs">
+  <div class="container">
+    <div class="d-flex gap-2 overflow-auto py-2">
+      <button class="tab-btn active" onclick="showFormTab('register',this)">New Registration</button>
+      <button class="tab-btn" onclick="showFormTab('switch',this)">Switch Mess</button>
+      <button class="tab-btn" onclick="showFormTab('leave',this)">Mess Leave</button>
+      <button class="tab-btn" onclick="showFormTab('grievance',this)">Grievance</button>
+    </div>
+  </div>
+</div>
+
+<div class="section-pad bg-white">
+  <div class="container">
+
+    <!-- NEW REGISTRATION FORM -->
+    <div class="form-section active" id="register">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="form-card">
+            <div class="form-card-head" style="background:linear-gradient(90deg,#0f2c5e,#1a3f7a)">
+              <h4 class="text-white fw-bold mb-1">New Mess Registration</h4>
+              <p class="text-white-50 small mb-0">For students registering for a mess for the first time or at the start of a new semester.</p>
+            </div>
+            <div class="form-card-body">
+              <div id="registerSuccess" class="alert alert-success d-none">Your mess registration has been submitted successfully. You will receive a confirmation on your registered email within 2 working days.</div>
+              <div id="registerError" class="alert alert-danger d-none"></div>
+              <form id="registerForm" onsubmit="submitForm(event,'registerForm','registerSuccess','registerError')">
+                <h6 class="form-section-label">Student Details</h6>
+                <div class="row g-3 mb-3">
+                  <div class="col-sm-6">
+                    <label class="form-label fw-semibold small">Full Name *</label>
+                    <input type="text" class="form-control" placeholder="As per ID card" required/>
+                  </div>
+                  <div class="col-sm-6">
+                    <label class="form-label fw-semibold small">Registration Number *</label>
+                    <input type="text" class="form-control" placeholder="e.g. 24BCE1234" required/>
+                  </div>
+                  <div class="col-sm-6">
+                    <label class="form-label fw-semibold small">Hostel Block *</label>
+                    <select class="form-select" required>
+                      <option value="">Select Block</option>
+                      <option>Block A</option><option>Block B</option><option>Block C</option>
+                      <option>Block D</option><option>Block E</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-6">
+                    <label class="form-label fw-semibold small">Room Number *</label>
+                    <input type="text" class="form-control" placeholder="e.g. B-204" required/>
+                  </div>
+                  <div class="col-sm-6">
+                    <label class="form-label fw-semibold small">Course</label>
+                    <input type="text" class="form-control" placeholder="e.g. B.Tech CSE"/>
+                  </div>
+                  <div class="col-sm-6">
+                    <label class="form-label fw-semibold small">Year of Study</label>
+                    <select class="form-select">
+                      <option value="">Select Year</option>
+                      <option>1st Year</option><option>2nd Year</option>
+                      <option>3rd Year</option><option>4th Year</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-6">
+                    <label class="form-label fw-semibold small">Email Address *</label>
+                    <input type="email" class="form-control" placeholder="reg@vit.ac.in" required/>
+                  </div>
+                  <div class="col-sm-6">
+                    <label class="form-label fw-semibold small">Phone Number *</label>
+                    <input type="tel" class="form-control" placeholder="10-digit mobile number" required/>
+                  </div>
+                </div>
+
+                <h6 class="form-section-label mt-4">Mess Preference</h6>
+                <div class="row g-3 mb-3">
+                  <div class="col-sm-6">
+                    <label class="form-label fw-semibold small">Mess Type *</label>
+                    <select class="form-select" id="regMessType" required onchange="updateMessFee()">
+                      <option value="">Select Mess Type</option>
+                      <option value="3200">Vegetarian Mess (Rs. 3,200/month)</option>
+                      <option value="3600">Non-Vegetarian Mess (Rs. 3,600/month)</option>
+                      <option value="4200">Special Mess (Rs. 4,200/month)</option>
+                      <option value="0">Paid Mess (Pay per meal)</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-6">
+                    <label class="form-label fw-semibold small">Semester</label>
+                    <select class="form-select">
+                      <option>Odd Semester (Jul – Nov)</option>
+                      <option>Even Semester (Jan – May)</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-6">
+                    <label class="form-label fw-semibold small">Dietary Restriction</label>
+                    <select class="form-select">
+                      <option>None</option>
+                      <option>Jain (No Root Vegetables)</option>
+                      <option>No Onion / Garlic</option>
+                      <option>Diabetic Diet</option>
+                      <option>Other (specify in remarks)</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-6">
+                    <label class="form-label fw-semibold small">Estimated Monthly Fee</label>
+                    <input type="text" class="form-control" id="regFeeDisplay" value="Select mess type" readonly style="background:#f8fafc"/>
+                  </div>
+                </div>
+
+                <h6 class="form-section-label mt-4">Payment Details</h6>
+                <div class="row g-3 mb-4">
+                  <div class="col-sm-6">
+                    <label class="form-label fw-semibold small">Payment Mode</label>
+                    <select class="form-select">
+                      <option>Online (UPI / Net Banking)</option>
+                      <option>Demand Draft</option>
+                      <option>VIT Wallet</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-6">
+                    <label class="form-label fw-semibold small">Transaction Reference (if paid)</label>
+                    <input type="text" class="form-control" placeholder="UTR / DD Number"/>
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label fw-semibold small">Remarks</label>
+                    <textarea class="form-control" rows="3" placeholder="Any additional information or special requirements..."></textarea>
+                  </div>
+                </div>
+
+                <div class="form-check mb-4">
+                  <input class="form-check-input" type="checkbox" id="regAgree" required/>
+                  <label class="form-check-label small" for="regAgree">
+                    I have read and agree to the mess rules and regulations. I understand that mess fee is non-refundable after the 10th of each month.
+                  </label>
+                </div>
+                <button type="submit" class="btn btn-primary-solid px-5 py-2 fw-bold">Submit Registration</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SWITCH MESS FORM -->
+    <div class="form-section d-none" id="switch">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="alert" style="background:#fef9c3;border:1px solid #fde047;border-radius:10px;color:#713f12" role="alert">
+            <strong>Important:</strong> Mess switch window is open only from the 20th to the 25th of every month. Requests submitted outside this window will not be processed.
+          </div>
+          <div class="form-card mt-3">
+            <div class="form-card-head" style="background:linear-gradient(90deg,#713f12,#92400e)">
+              <h4 class="text-white fw-bold mb-1">Mess Switch Request</h4>
+              <p class="text-white-50 small mb-0">Switch your current mess type. Change will take effect from the 1st of the following month.</p>
+            </div>
+            <div class="form-card-body">
+              <div id="switchSuccess" class="alert alert-success d-none">Your mess switch request has been submitted. The change will be effective from the 1st of next month pending approval.</div>
+              <div id="switchError" class="alert alert-danger d-none"></div>
+              <form id="switchForm" onsubmit="submitForm(event,'switchForm','switchSuccess','switchError')">
+                <div class="row g-3 mb-4">
+                  <div class="col-sm-6">
+                    <label class="form-label fw-semibold small">Full Name *</label>
+                    <input type="text" class="form-control" required/>
+                  </div>
+                  <div class="col-sm-6">
+                    <label class="form-label fw-semibold small">Registration Number *</label>
+                    <input type="text" class="form-control" placeholder="e.g. 24BCE1234" required/>
+                  </div>
+                  <div class="col-sm-6">
+                    <label class="form-label fw-semibold small">Hostel Block *</label>
+                    <select class="form-select" required>
+                      <option value="">Select</option>
+                      <option>Block A</option><option>Block B</option><option>Block C</option>
+                      <option>Block D</option><option>Block E</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-6">
+                    <label class="form-label fw-semibold small">Room Number *</label>
+                    <input type="text" class="form-control" required/>
+                  </div>
+                  <div class="col-sm-6">
+                    <label class="form-label fw-semibold small">Current Mess Type *</label>
+                    <select class="form-select" required>
+                      <option value="">Select</option>
+                      <option>Vegetarian Mess</option>
+                      <option>Non-Vegetarian Mess</option>
+                      <option>Special Mess</option>
+                      <option>Paid Mess</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-6">
+                    <label class="form-label fw-semibold small">Requested Mess Type *</label>
+                    <select class="form-select" required>
+                      <option value="">Select</option>
+                      <option>Vegetarian Mess</option>
+                      <option>Non-Vegetarian Mess</option>
+                      <option>Special Mess</option>
+                      <option>Paid Mess</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-6">
+                    <label class="form-label fw-semibold small">Effective From Month</label>
+                    <input type="month" class="form-control"/>
+                  </div>
+                  <div class="col-sm-6">
+                    <label class="form-label fw-semibold small">Contact Email *</label>
+                    <input type="email" class="form-control" required/>
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label fw-semibold small">Reason for Switch *</label>
+                    <textarea class="form-control" rows="3" required placeholder="Please provide a reason for the switch request..."></textarea>
+                  </div>
+                </div>
+                <div class="form-check mb-4">
+                  <input class="form-check-input" type="checkbox" id="switchAgree" required/>
+                  <label class="form-check-label small" for="switchAgree">
+                    I confirm that this request is submitted within the switch window (20th to 25th of the month) and I accept the revised fee applicable to the new mess type.
+                  </label>
+                </div>
+                <button type="submit" class="btn btn-primary-solid px-5 py-2 fw-bold">Submit Switch Request</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MESS LEAVE FORM -->
+    <div class="form-section d-none" id="leave">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="form-card">
+            <div class="form-card-head" style="background:linear-gradient(90deg,#166534,#15803d)">
+              <h4 class="text-white fw-bold mb-1">Mess Leave Application</h4>
+              <p class="text-white-50 small mb-0">Apply for a mess leave if you will be absent from campus. Partial refund may be applicable for leaves of 5 or more days.</p>
+            </div>
+            <div class="form-card-body">
+              <div id="leaveSuccess" class="alert alert-success d-none">Your mess leave application has been received. Approval will be communicated within 1 working day.</div>
+              <div id="leaveError" class="alert alert-danger d-none"></div>
+              <form id="leaveForm" onsubmit="submitForm(event,'leaveForm','leaveSuccess','leaveError')">
+                <div class="row g-3 mb-4">
+                  <div class="col-sm-6">
+                    <label class="form-label fw-semibold small">Full Name *</label>
+                    <input type="text" class="form-control" required/>
+                  </div>
+                  <div class="col-sm-6">
+                    <label class="form-label fw-semibold small">Registration Number *</label>
+                    <input type="text" class="form-control" required/>
+                  </div>
+                  <div class="col-sm-6">
+                    <label class="form-label fw-semibold small">Hostel Block *</label>
+                    <select class="form-select" required>
+                      <option value="">Select</option>
+                      <option>Block A</option><option>Block B</option><option>Block C</option>
+                      <option>Block D</option><option>Block E</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-6">
+                    <label class="form-label fw-semibold small">Mess Type</label>
+                    <select class="form-select">
+                      <option>Vegetarian Mess</option>
+                      <option>Non-Vegetarian Mess</option>
+                      <option>Special Mess</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-6">
+                    <label class="form-label fw-semibold small">Leave Start Date *</label>
+                    <input type="date" class="form-control" required/>
+                  </div>
+                  <div class="col-sm-6">
+                    <label class="form-label fw-semibold small">Leave End Date *</label>
+                    <input type="date" class="form-control" required/>
+                  </div>
+                  <div class="col-sm-6">
+                    <label class="form-label fw-semibold small">Reason for Leave *</label>
+                    <select class="form-select" required>
+                      <option value="">Select</option>
+                      <option>Home Visit</option>
+                      <option>Medical Reason</option>
+                      <option>Industrial Training</option>
+                      <option>Internship</option>
+                      <option>Other</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-6">
+                    <label class="form-label fw-semibold small">Contact Number *</label>
+                    <input type="tel" class="form-control" required/>
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label fw-semibold small">Additional Details</label>
+                    <textarea class="form-control" rows="2" placeholder="Any additional information..."></textarea>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary-solid px-5 py-2 fw-bold">Submit Leave Application</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GRIEVANCE FORM -->
+    <div class="form-section d-none" id="grievance">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="form-card">
+            <div class="form-card-head" style="background:linear-gradient(90deg,#7c2d12,#9a3412)">
+              <h4 class="text-white fw-bold mb-1">Mess Grievance Form</h4>
+              <p class="text-white-50 small mb-0">Report hygiene issues, incorrect billing, food quality complaints, or any other mess-related concern.</p>
+            </div>
+            <div class="form-card-body">
+              <div id="grievanceSuccess" class="alert alert-success d-none">Your grievance has been registered. The mess committee will respond within 3 working days.</div>
+              <div id="grievanceError" class="alert alert-danger d-none"></div>
+              <form id="grievanceForm" onsubmit="submitForm(event,'grievanceForm','grievanceSuccess','grievanceError')">
+                <div class="row g-3 mb-4">
+                  <div class="col-sm-6">
+                    <label class="form-label fw-semibold small">Full Name *</label>
+                    <input type="text" class="form-control" required/>
+                  </div>
+                  <div class="col-sm-6">
+                    <label class="form-label fw-semibold small">Registration Number *</label>
+                    <input type="text" class="form-control" required/>
+                  </div>
+                  <div class="col-sm-6">
+                    <label class="form-label fw-semibold small">Hostel Block</label>
+                    <select class="form-select">
+                      <option>Block A</option><option>Block B</option><option>Block C</option>
+                      <option>Block D</option><option>Block E</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-6">
+                    <label class="form-label fw-semibold small">Mess Type</label>
+                    <select class="form-select">
+                      <option>Vegetarian Mess</option>
+                      <option>Non-Vegetarian Mess</option>
+                      <option>Special Mess</option>
+                      <option>Paid Mess</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-6">
+                    <label class="form-label fw-semibold small">Grievance Category *</label>
+                    <select class="form-select" required>
+                      <option value="">Select</option>
+                      <option>Food Quality</option>
+                      <option>Hygiene / Cleanliness</option>
+                      <option>Billing Error</option>
+                      <option>Staff Behaviour</option>
+                      <option>Menu Not Followed</option>
+                      <option>Timing Issue</option>
+                      <option>Other</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-6">
+                    <label class="form-label fw-semibold small">Date of Incident *</label>
+                    <input type="date" class="form-control" required/>
+                  </div>
+                  <div class="col-sm-6">
+                    <label class="form-label fw-semibold small">Priority</label>
+                    <select class="form-select">
+                      <option>Normal</option>
+                      <option>High</option>
+                      <option>Urgent</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-6">
+                    <label class="form-label fw-semibold small">Email for Response *</label>
+                    <input type="email" class="form-control" required/>
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label fw-semibold small">Description *</label>
+                    <textarea class="form-control" rows="4" required placeholder="Describe the issue in detail. Include date, time, and meal type if applicable..."></textarea>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary-solid px-5 py-2 fw-bold">Submit Grievance</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- RULES AND REGULATIONS SECTION -->
+<section class="section-pad" style="background:#f4f6f9" id="regulations">
+  <div class="container">
+    <div class="section-head text-center mb-5">
+      <h2 class="section-title">Mess Rules and Regulations</h2>
+      <p class="section-sub">All hostel students registered for any mess type must adhere to the following regulations.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-6">
+        <h5 class="reg-category-head">General Conduct</h5>
+        <div class="reg-list">
+          <div class="reg-item"><span class="reg-code">G.01</span><span>ID card is mandatory for entry. Students without a valid ID will not be permitted inside the mess hall.</span></div>
+          <div class="reg-item"><span class="reg-code">G.02</span><span>Students must maintain orderly queues at the serving counter. Cutting queues or reserving seats for others is not permitted.</span></div>
+          <div class="reg-item"><span class="reg-code">G.03</span><span>Food wastage is strictly prohibited. Students must take only the quantity they will consume. Repeat servings are available for rice and dal.</span></div>
+          <div class="reg-item"><span class="reg-code">G.04</span><span>Food items must not be taken out of the mess hall in personal containers or bags.</span></div>
+          <div class="reg-item"><span class="reg-code">G.05</span><span>Dress code must be observed. Students in nightwear, sleeveless tops without covering, or barefoot are not permitted entry.</span></div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <h5 class="reg-category-head">Fee and Registration</h5>
+        <div class="reg-list">
+          <div class="reg-item"><span class="reg-code">F.01</span><span>Mess fee must be paid in full before the 10th of each month. A late fee of Rs. 50 per day applies after the due date.</span></div>
+          <div class="reg-item"><span class="reg-code">F.02</span><span>Mess fee is non-refundable once the month has commenced, except for approved medical or emergency leave applications.</span></div>
+          <div class="reg-item"><span class="reg-code">F.03</span><span>Students may switch mess type only during the switch window (20th to 25th of each month). Retroactive switches are not permitted.</span></div>
+          <div class="reg-item"><span class="reg-code">F.04</span><span>Non-payment of mess fee for more than two consecutive months will result in suspension of access and academic hold.</span></div>
+          <div class="reg-item"><span class="reg-code">F.05</span><span>Mess fee refunds for approved leaves are processed within 10 working days to the student's bank account on record.</span></div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <h5 class="reg-category-head">Hygiene and Safety</h5>
+        <div class="reg-list">
+          <div class="reg-item"><span class="reg-code">H.01</span><span>Students must wash hands at the wash basins provided before collecting their tray. Hand sanitizer dispensers are available at entry.</span></div>
+          <div class="reg-item"><span class="reg-code">H.02</span><span>Used trays and utensils must be deposited at the designated collection counters. Students must not leave trays on tables.</span></div>
+          <div class="reg-item"><span class="reg-code">H.03</span><span>Any spillage must be reported to the mess staff immediately. Students must not attempt to clean up on their own in the kitchen area.</span></div>
+          <div class="reg-item"><span class="reg-code">H.04</span><span>Students with communicable illness should not dine in the mess hall. Meals can be collected in approved containers for in-room consumption with warden approval.</span></div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <h5 class="reg-category-head">Complaints and Feedback</h5>
+        <div class="reg-list">
+          <div class="reg-item"><span class="reg-code">C.01</span><span>All complaints must be submitted through the official online feedback or grievance form. Verbal complaints to kitchen staff will not be officially registered.</span></div>
+          <div class="reg-item"><span class="reg-code">C.02</span><span>Grievances are reviewed by the Mess Committee every Monday. Students will receive a written response within 3 working days.</span></div>
+          <div class="reg-item"><span class="reg-code">C.03</span><span>Anonymous feedback is accepted and reviewed. However, for billing or refund-related complaints, student identification is mandatory.</span></div>
+          <div class="reg-item"><span class="reg-code">C.04</span><span>Misuse of the grievance system by submitting false or malicious complaints will result in disciplinary action.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer pt-5 pb-4">
+  <div class="container">
+    <div class="row g-4 mb-4">
+      <div class="col-md-4">
+        <div class="d-flex align-items-center gap-3 mb-3">
+          <div class="brand-mark">M</div>
+          <div><div class="brand-name">VIT Mess Portal</div><div class="brand-tagline">Hostel Dining Guide</div></div>
+        </div>
+        <p class="footer-text">Centralized mess management portal for VIT University hostel students.</p>
+      </div>
+      <div class="col-md-4">
+        <h6 class="footer-head">Navigation</h6>
+        <ul class="list-unstyled footer-links">
+          <li><a href="index.html">Overview</a></li>
+          <li><a href="menu.html">Weekly Menu</a></li>
+          <li><a href="paid.html">Paid Mess</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="forms.html">Registration</a></li>
+          <li><a href="feedback.html">Feedback</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h6 class="footer-head">Mess Administration</h6>
+        <ul class="list-unstyled footer-text small">
+          <li class="mb-2">Mess Office: Block B, Ground Floor</li>
+          <li class="mb-2">Phone: 0416-220-3030</li>
+          <li class="mb-2">Email: mess@vit.ac.in</li>
+          <li>Office Hours: 9 AM to 5 PM (Mon to Sat)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-top border-white border-opacity-10 pt-4 d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+      <p class="footer-text small mb-0">2025 VIT Mess Portal. All rights reserved.</p>
+      <p class="footer-text small mb-0" style="opacity:.4">Built with HTML, Bootstrap, JavaScript</p>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
