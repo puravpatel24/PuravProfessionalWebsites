@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VIT Mess Portal — Gallery</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg sticky-top site-navbar">
+  <div class="container">
+    <a class="navbar-brand brand-wrap" href="index.html">
+      <div class="brand-mark">M</div>
+      <div><div class="brand-name">VIT Mess Portal</div><div class="brand-tagline">Hostel Dining Guide</div></div>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-1">
+        <li class="nav-item"><a class="nav-link npill" href="index.html">Overview</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link npill dropdown-toggle" href="#" data-bs-toggle="dropdown">Mess Types</a>
+          <ul class="dropdown-menu site-dropdown">
+            <li><a class="dropdown-item" href="menu.html#veg">Vegetarian Mess</a></li>
+            <li><a class="dropdown-item" href="menu.html#nonveg">Non-Vegetarian Mess</a></li>
+            <li><a class="dropdown-item" href="menu.html#special">Special Mess</a></li>
+            <li><hr class="dropdown-divider"/></li>
+            <li><a class="dropdown-item" href="paid.html">Paid Mess (Hotel Style)</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link npill" href="menu.html">Weekly Menu</a></li>
+        <li class="nav-item"><a class="nav-link npill active" href="gallery.html">Gallery</a></li>
+        <li class="nav-item"><a class="nav-link npill" href="forms.html">Registration</a></li>
+        <li class="nav-item"><a class="nav-link npill" href="feedback.html">Feedback</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="container py-5 text-center">
+    <p class="page-eyebrow">Visual Tour</p>
+    <h1 class="page-title">Mess Gallery</h1>
+    <p class="page-sub mx-auto">A look inside VIT's hostel dining facilities — mess halls, food, kitchens, and campus dining experience.</p>
+  </div>
+</div>
+
+<!-- FILTER TABS -->
+<div class="sticky-tabs">
+  <div class="container">
+    <div class="d-flex gap-2 overflow-auto py-2">
+      <button class="tab-btn active" onclick="filterGallery('all',this)">All</button>
+      <button class="tab-btn" onclick="filterGallery('mess-hall',this)">Mess Halls</button>
+      <button class="tab-btn" onclick="filterGallery('food',this)">Food</button>
+      <button class="tab-btn" onclick="filterGallery('kitchen',this)">Kitchen</button>
+      <button class="tab-btn" onclick="filterGallery('paid',this)">Paid Mess</button>
+    </div>
+  </div>
+</div>
+
+<!-- GALLERY GRID -->
+<section class="section-pad bg-white">
+  <div class="container">
+    <div class="row g-3" id="galleryGrid">
+
+      <!-- Mess Hall Photos -->
+      <div class="col-sm-6 col-lg-4 gal-item" data-cat="mess-hall">
+        <div class="gal-card">
+          <div class="gal-img" style="background:linear-gradient(135deg,#0f2c5e,#1a3f7a)">
+            <div class="gal-placeholder">
+              <div class="gp-label">Mess Hall A</div>
+              <div class="gp-sub">Main dining area — 240 seating capacity</div>
+            </div>
+          </div>
+          <div class="gal-caption">Mess Hall A — Block A Dining Area</div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-4 gal-item" data-cat="mess-hall">
+        <div class="gal-card">
+          <div class="gal-img" style="background:linear-gradient(135deg,#713f12,#92400e)">
+            <div class="gal-placeholder">
+              <div class="gp-label">Central Mess B</div>
+              <div class="gp-sub">Renovated in 2023 — air-conditioned seating</div>
+            </div>
+          </div>
+          <div class="gal-caption">Central Mess B — Block B Premium Hall</div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-4 gal-item" data-cat="mess-hall">
+        <div class="gal-card">
+          <div class="gal-img" style="background:linear-gradient(135deg,#166534,#14532d)">
+            <div class="gal-placeholder">
+              <div class="gp-label">Mess Hall C</div>
+              <div class="gp-sub">Girls block — 260 seating capacity</div>
+            </div>
+          </div>
+          <div class="gal-caption">Mess Hall C — Block C Girls Dining</div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-4 gal-item" data-cat="mess-hall">
+        <div class="gal-card">
+          <div class="gal-img" style="background:linear-gradient(135deg,#1e3a8a,#1e40af)">
+            <div class="gal-placeholder">
+              <div class="gp-label">Central Mess D</div>
+              <div class="gp-sub">Special Mess and Paid Mess combined</div>
+            </div>
+          </div>
+          <div class="gal-caption">Central Mess D — Special and Paid Dining</div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-4 gal-item" data-cat="mess-hall">
+        <div class="gal-card">
+          <div class="gal-img" style="background:linear-gradient(135deg,#7f1d1d,#991b1b)">
+            <div class="gal-placeholder">
+              <div class="gp-label">Mess Hall E</div>
+              <div class="gp-sub">Sports block — extended non-veg menu</div>
+            </div>
+          </div>
+          <div class="gal-caption">Mess Hall E — Block E Dining Area</div>
+        </div>
+      </div>
+
+      <!-- Food Photos -->
+      <div class="col-sm-6 col-lg-4 gal-item" data-cat="food">
+        <div class="gal-card">
+          <div class="gal-img" style="background:linear-gradient(135deg,#d97706,#b45309)">
+            <div class="gal-placeholder">
+              <div class="gp-label">Veg Thali</div>
+              <div class="gp-sub">Dal, rice, roti, sabzi, curd, dessert</div>
+            </div>
+          </div>
+          <div class="gal-caption">Standard Veg Thali — Lunch Service</div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-4 gal-item" data-cat="food">
+        <div class="gal-card">
+          <div class="gal-img" style="background:linear-gradient(135deg,#166534,#15803d)">
+            <div class="gal-placeholder">
+              <div class="gp-label">South Indian Breakfast</div>
+              <div class="gp-sub">Idli, dosa, vada, sambar, chutney</div>
+            </div>
+          </div>
+          <div class="gal-caption">South Indian Breakfast — Daily Special</div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-4 gal-item" data-cat="food">
+        <div class="gal-card">
+          <div class="gal-img" style="background:linear-gradient(135deg,#7c2d12,#9a3412)">
+            <div class="gal-placeholder">
+              <div class="gp-label">Sunday Special Biryani</div>
+              <div class="gp-sub">Chicken and veg biryani every Sunday</div>
+            </div>
+          </div>
+          <div class="gal-caption">Sunday Special Biryani — Non-Veg Mess</div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-4 gal-item" data-cat="food">
+        <div class="gal-card">
+          <div class="gal-img" style="background:linear-gradient(135deg,#1e3a8a,#2563eb)">
+            <div class="gal-placeholder">
+              <div class="gp-label">Special Mess Dinner</div>
+              <div class="gp-sub">Premium paneer, dal makhani, dessert</div>
+            </div>
+          </div>
+          <div class="gal-caption">Special Mess Premium Dinner Spread</div>
+        </div>
+      </div>
+
+      <!-- Kitchen -->
+      <div class="col-sm-6 col-lg-4 gal-item" data-cat="kitchen">
+        <div class="gal-card">
+          <div class="gal-img" style="background:linear-gradient(135deg,#374151,#1f2937)">
+            <div class="gal-placeholder">
+              <div class="gp-label">Main Kitchen</div>
+              <div class="gp-sub">FSSAI certified — daily hygiene audit</div>
+            </div>
+          </div>
+          <div class="gal-caption">Central Kitchen — Block B Mess</div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-4 gal-item" data-cat="kitchen">
+        <div class="gal-card">
+          <div class="gal-img" style="background:linear-gradient(135deg,#4b5563,#374151)">
+            <div class="gal-placeholder">
+              <div class="gp-label">RO Filtration Unit</div>
+              <div class="gp-sub">Purified water used in all cooking</div>
+            </div>
+          </div>
+          <div class="gal-caption">RO Water Purification — Mess Kitchen</div>
+        </div>
+      </div>
+
+      <!-- Paid Mess -->
+      <div class="col-sm-6 col-lg-4 gal-item" data-cat="paid">
+        <div class="gal-card">
+          <div class="gal-img" style="background:linear-gradient(135deg,#713f12,#a16207)">
+            <div class="gal-placeholder">
+              <div class="gp-label">Paid Mess Counter</div>
+              <div class="gp-sub">A la carte ordering at the main counter</div>
+            </div>
+          </div>
+          <div class="gal-caption">Paid Mess Counter — Central Mess B</div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-4 gal-item" data-cat="paid">
+        <div class="gal-card">
+          <div class="gal-img" style="background:linear-gradient(135deg,#6b21a8,#7c3aed)">
+            <div class="gal-placeholder">
+              <div class="gp-label">Late Night Snacks</div>
+              <div class="gp-sub">Available 9 PM to 10:30 PM daily</div>
+            </div>
+          </div>
+          <div class="gal-caption">Paid Mess Evening Snack Counter</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- MESS OVERVIEW SECTION -->
+<section class="section-pad" style="background:#f4f6f9">
+  <div class="container">
+    <div class="section-head text-center mb-5">
+      <h2 class="section-title">Facility Overview</h2>
+      <p class="section-sub">Key facts about VIT's hostel dining infrastructure.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3">
+        <div class="overview-card">
+          <div class="ov-num">5</div>
+          <div class="ov-title">Mess Halls</div>
+          <div class="ov-desc">One dedicated mess hall per hostel block. Central messes serve multiple blocks.</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="overview-card">
+          <div class="ov-num">1200</div>
+          <div class="ov-title">Seating Capacity</div>
+          <div class="ov-desc">Combined seating across all five mess halls for simultaneous dining.</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="overview-card">
+          <div class="ov-num">6500+</div>
+          <div class="ov-title">Meals Per Day</div>
+          <div class="ov-desc">Total meals served across breakfast, lunch, and dinner on a regular weekday.</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="overview-card">
+          <div class="ov-num">15</div>
+          <div class="ov-title">Days Hygiene Cycle</div>
+          <div class="ov-desc">Full deep-clean and FSSAI hygiene audit conducted every 15 days.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer pt-5 pb-4">
+  <div class="container">
+    <div class="row g-4 mb-4">
+      <div class="col-md-4">
+        <div class="d-flex align-items-center gap-3 mb-3">
+          <div class="brand-mark">M</div>
+          <div><div class="brand-name">VIT Mess Portal</div><div class="brand-tagline">Hostel Dining Guide</div></div>
+        </div>
+        <p class="footer-text">Centralized mess management portal for VIT University hostel students.</p>
+      </div>
+      <div class="col-md-4">
+        <h6 class="footer-head">Navigation</h6>
+        <ul class="list-unstyled footer-links">
+          <li><a href="index.html">Overview</a></li>
+          <li><a href="menu.html">Weekly Menu</a></li>
+          <li><a href="paid.html">Paid Mess</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="forms.html">Registration</a></li>
+          <li><a href="feedback.html">Feedback</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h6 class="footer-head">Mess Administration</h6>
+        <ul class="list-unstyled footer-text small">
+          <li class="mb-2">Mess Office: Block B, Ground Floor</li>
+          <li class="mb-2">Phone: 0416-220-3030</li>
+          <li class="mb-2">Email: mess@vit.ac.in</li>
+          <li>Office Hours: 9 AM to 5 PM (Mon to Sat)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-top border-white border-opacity-10 pt-4 d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+      <p class="footer-text small mb-0">2025 VIT Mess Portal. All rights reserved.</p>
+      <p class="footer-text small mb-0" style="opacity:.4">Built with HTML, Bootstrap, JavaScript</p>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
